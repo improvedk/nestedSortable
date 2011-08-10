@@ -43,7 +43,7 @@ Please note: every `<li>` must have either one or two direct children, the first
 	<dd>The list type used (ordered or unordered). Default: <b>ol</b></dd>
 	<dt>maxLevels </dt>
 	<dd>The maximum depth of nested items the list can accept. If set to '0' the levels are unlimited. Default: <b>0</b></dd>
-	<td>dropVerificationFunction</td>
+	<dt>dropVerificationFunction</dt>
 	<dd>An optional function that takes a source and a target element as parameters. Should return true/false to determine if drop location is valid.</dd>
 </dl>
 
