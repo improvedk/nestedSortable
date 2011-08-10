@@ -175,10 +175,23 @@
 		},
 
 		_mouseStop: function(event, noPropagation) {
+			
+			// Are we beyond max level?
+			var allowed = !this.beyondMaxLevels;
+
+			//debugger;			
+			// Does the user verification method allow this location?
+			if(allowed && this.options.dropVerificationFunction) {
+				var target = this.placeholder.parent().closest(this.options.items);
+
+				if(target.length == 0)
+					target = null;
+				
+				allowed = this.options.dropVerificationFunction(this.currentItem, target);
+			}
 
 			// If the item is in a position not allowed, send it back
-			if (this.beyondMaxLevels) {
-
+			if (!allowed) {
 				this.placeholder.removeClass(this.options.errorClass);
 
 				if (this.options.revertOnError) {
@@ -198,7 +211,6 @@
 					parent.after(this.placeholder);
 					this._trigger("change", event, this._uiHash());
 				}
-
 			}
 
 			// Clean last empty ul/ol
