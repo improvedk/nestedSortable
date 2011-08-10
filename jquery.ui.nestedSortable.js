@@ -179,7 +179,6 @@
 			// Are we beyond max level?
 			var allowed = !this.beyondMaxLevels;
 
-			//debugger;			
 			// Does the user verification method allow this location?
 			if(allowed && this.options.dropVerificationFunction) {
 				var target = this.placeholder.parent().closest(this.options.items);
